@@ -20,7 +20,7 @@ export async function createPrediction(
     .then(({ secure_url }) => secure_url);
 
   const prediction = await fetch(
-    "https://replicate.com/api/models/jagilley/controlnet-hough/versions/854e8727697a057c525cdb45ab037f64ecca770a1769cc52287c2e56472a247b/predictions",
+    "https://replicate.com/api/models/cjwbw/rembg/versions/fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003/predictions",
     {
       headers: {
         accept: "application/json",
@@ -38,24 +38,11 @@ export async function createPrediction(
         "sec-fetch-site": "same-origin",
         "x-csrftoken": "A5sL51Out2VApJoQFJhlzUlGHa3UrENR",
       },
-      referrer: "https://replicate.com/jagilley/controlnet-hough",
+      referrer: "https://replicate.com/cjwbw/rembg",
       referrerPolicy: "same-origin",
       body: JSON.stringify({
         input: {
-          eta: 0,
           image: imageUrl,
-          scale: 9,
-          prompt: formData.get("prompt") as string,
-          a_prompt:
-            "best quality, extremely detailed, 4k, octane render, sharp, bloom, daylight",
-          n_prompt:
-            "longbody, lowres, bad anatomy, bad hands, missing fingers, extra digit, fewer digits, cropped, worst quality, low quality",
-          ddim_steps: 20,
-          num_samples: "1",
-          value_threshold: 0.1,
-          image_resolution: "512",
-          detect_resolution: 512,
-          distance_threshold: 0.1,
         },
         stream: false,
       }),
@@ -76,7 +63,7 @@ export async function getPrediction(id: string) {
       accept: "*/*",
       "accept-language": "es-ES,es;q=0.9",
       baggage:
-        "sentry-public_key=3dc017e574684610bbc7fd3b5519a4e8,sentry-trace_id=194f3a579ab047e3ad359084fab690d7,sentry-sample_rate=0.1",
+        "sentry-public_key=3dc017e574684610bbc7fd3b5519a4e8,sentry-trace_id=0bdb5ebe88fe428ca6c35dd71bb846cf,sentry-sample_rate=0.1",
       "cache-control": "no-cache",
       pragma: "no-cache",
       priority: "u=1, i",
@@ -87,10 +74,10 @@ export async function getPrediction(id: string) {
       "sec-fetch-dest": "empty",
       "sec-fetch-mode": "cors",
       "sec-fetch-site": "same-origin",
-      "sentry-trace": "194f3a579ab047e3ad359084fab690d7-9ac61b2719042eec-0",
+      "sentry-trace": "0bdb5ebe88fe428ca6c35dd71bb846cf-8176464f7e4193e6-0",
     },
     referrer:
-      "https://replicate.com/jagilley/controlnet-hough?prediction=fahj5wjchdrgm0cf2vkr83h9pc",
+      "https://replicate.com/cjwbw/rembg?prediction=avetbx74r5rgm0cf7ax9azw27w",
     referrerPolicy: "same-origin",
     body: null,
     method: "GET",

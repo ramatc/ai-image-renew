@@ -24,7 +24,7 @@ html {
 }
 
 body {
-  color: white;
+  color: black;
 }
 
 a {
@@ -34,12 +34,6 @@ a {
 
 p {
   max-width: 75ch;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
