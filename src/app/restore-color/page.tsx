@@ -46,16 +46,18 @@ export default function PageRestore() {
 
   return (
     <section className="px-12 pt-12 pb-4 min-h-screen max-w-[1250px] mx-auto md:px-20 md:pt-20">
-      <two-up>
+      {/* <two-up>
         {state?.input.image && (
           <img alt="Prev del render" src={state.input.image} />
         )}
         {state?.output && <img alt="Prev del render" src={state.output} />}
-      </two-up>
+      </two-up> */}
+      {state?.output && <img alt="Prev del render" src={state.output} />}
 
       <form action={formAction}>
         <FormContent />
       </form>
+      <button>Descargar imágen</button>
     </section>
   );
 }

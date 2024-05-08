@@ -14,12 +14,12 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="py-5 md:p-5 text-sm sm:text-base border-b-2 border-slate-400">
+      <nav className="py-5 md:p-5 text-sm sm:text-base border-b-2 border-slate-200">
         <ul className="flex flex-wrap gap-3 md:gap-5">
           <li>
             <Link
               href="/"
-              className="hover:text-[#961b3c] transition-all duration-500 ease-in-out font-medium text-[20px] flex"
+              className="hover:text-jade-600 transition-all duration-500 ease-in-out font-medium text-[20px] flex"
             >
               <Logo />
               <span className="font-semibold">AI</span>&nbsp;Image Renew
@@ -33,8 +33,8 @@ const Header = () => {
               <li key={index}>
                 <Link
                   href={link.href}
-                  className={`hover:text-[#961b3c] transition-all duration-500 ease-in-out ${
-                    isActive && "text-[#961b3c]"
+                  className={`hover:text-jade-600 transition-all duration-500 ease-in-out ${
+                    isActive && "text-jade-600"
                   }`}
                 >
                   {link.name}
