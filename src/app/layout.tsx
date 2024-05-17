@@ -11,6 +11,7 @@ export const metadata: Metadata = {
     "AI Image Renew | Elimina el fondo de imágenes y restaura el color de imágenes antiguas",
   description:
     "Aplicación para eliminar fondo de imágenes y restaurar el color de imágenes antiguas",
+  metadataBase: new URL("https://ai-image-renew.vercel.app/"),
 };
 
 export default function RootLayout({
