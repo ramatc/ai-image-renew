@@ -1,11 +1,4 @@
-export interface Prediction {
-  status: "starting" | "processing" | "succeeded";
-  id: string;
-  output: string;
-  input: {
-    image: string;
-  };
-}
+export interface Test {}
 
 declare module "react" {
   interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {

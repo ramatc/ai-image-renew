@@ -19,7 +19,7 @@ const Header = () => {
           <li>
             <Link
               href="/"
-              className="hover:text-jade-600 transition-all duration-500 ease-in-out font-medium text-[20px] flex"
+              className="hover:text-slate-500 transition-all duration-500 ease-in-out font-medium text-[20px] flex"
             >
               <Logo />
               <span className="font-semibold">AI</span>&nbsp;Image Renew
@@ -33,8 +33,8 @@ const Header = () => {
               <li key={index}>
                 <Link
                   href={link.href}
-                  className={`hover:text-jade-600 transition-all duration-500 ease-in-out ${
-                    isActive && "text-jade-600"
+                  className={`hover:text-slate-500 transition-all duration-500 ease-in-out ${
+                    isActive && "text-slate-500"
                   }`}
                 >
                   {link.name}

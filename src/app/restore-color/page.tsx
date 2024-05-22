@@ -3,25 +3,14 @@
 import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
-import { createRestorePrediction, getRestorePrediction } from "@/actions";
-import { Prediction } from "@/types";
+import FileInput from "@/app/components/file-input";
+import { restoreColor } from "@/actions";
 
-const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-function FormContent() {
+function FormContent({ state }: { state: string | undefined }) {
   const { pending } = useFormStatus();
 
   return (
-    <>
-      <input type="file" name="image" className="my-2" accept="image/*" />
-      <button
-        type="submit"
-        className="bg-white w-full text-black p-3 rounded mt-2"
-        disabled={pending}
-      >
-        Crear
-      </button>
-    </>
+    <FileInput status={pending} state={state} button="Restaurar el color" />
   );
 }
 
@@ -32,32 +21,23 @@ export default function PageRestore() {
 
   const [state, formAction] = useFormState(handleSubmit, null);
 
-  async function handleSubmit(_state: null | Prediction, formData: FormData) {
-    let prediction = await createRestorePrediction(formData);
-
-    while (["starting", "processing"].includes(prediction.status)) {
-      prediction = await getRestorePrediction(prediction.id);
-
-      await sleep(4000);
-    }
+  async function handleSubmit(_state: null | object, formData: FormData) {
+    let prediction = await restoreColor(formData);
 
     return prediction;
   }
 
   return (
-    <section className="px-12 pt-12 pb-4 min-h-screen max-w-[1250px] mx-auto md:px-20 md:pt-20">
-      {/* <two-up>
-        {state?.input.image && (
-          <img alt="Prev del render" src={state.input.image} />
-        )}
-        {state?.output && <img alt="Prev del render" src={state.output} />}
-      </two-up> */}
-      {state?.output && <img alt="Prev del render" src={state.output} />}
+    <section className="px-12 pt-12 min-h-screen max-w-[1250px] mx-auto md:px-20 md:pt-20">
+      <h1 className="text-4xl text-center mt-10 mb-6 font-bold text-gray-700">
+        Sube una imagen para
+        <br />
+        restaurar el color
+      </h1>
 
       <form action={formAction}>
-        <FormContent />
+        <FormContent state={state} />
       </form>
-      <button>Descargar imágen</button>
     </section>
   );
 }
