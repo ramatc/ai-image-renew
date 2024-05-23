@@ -7,8 +7,6 @@ const replicate = new Replicate({
 });
 
 export async function removeBackground(formData: FormData): Promise<any> {
-  console.log(formData.get("image"));
-
   const imageUrl = await fetch(
     `https://api.cloudinary.com/v1_1/ramatc/image/upload?upload_preset=replicate&folder=replicate`,
     {
@@ -19,18 +17,16 @@ export async function removeBackground(formData: FormData): Promise<any> {
     .then((res) => res.json() as Promise<{ secure_url: string }>)
     .then(({ secure_url }) => secure_url);
 
-  // const output = await replicate.run(
-  //   "cjwbw/rembg:fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003",
-  //   {
-  //     input: {
-  //       image: imageUrl,
-  //     },
-  //   }
-  // );
+  const output = await replicate.run(
+    "cjwbw/rembg:fb8af171cfa1616ddcf1242c093f9c46bcada5ad4cf6f2fbe8b81b330ec5c003",
+    {
+      input: {
+        image: imageUrl,
+      },
+    }
+  );
 
-  console.log("imageUrl", imageUrl);
-
-  return imageUrl;
+  return output;
 }
 
 export async function restoreColor(formData: FormData): Promise<any> {

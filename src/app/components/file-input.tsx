@@ -14,7 +14,6 @@ function FileInput({
 }) {
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [preview, setPreview] = useState<string | undefined>(undefined);
-  const [file, setFile] = useState<File | null>(null);
 
   const handleButtonClick = () => {
     if (fileInputRef.current) {
@@ -27,7 +26,6 @@ function FileInput({
       const file = event.target.files[0];
       const previewUrl = URL.createObjectURL(file);
       setPreview(previewUrl);
-      setFile(file);
     }
   };
 
@@ -92,9 +90,15 @@ function FileInput({
     if (status) {
       return <Loader />;
     }
+  };
 
+  const renderUploadButton = () => {
     return (
-      <div className="flex justify-between">
+      <div
+        className={`flex  ${
+          preview ? "justify-between" : "flex-col items-center"
+        }`}
+      >
         <input
           type="file"
           name="image"
@@ -106,53 +110,29 @@ function FileInput({
         <button
           type="button"
           onClick={handleButtonClick}
-          className="bg-blue-500 text-white px-2 py-3 mt-4 rounded-full w-[48%] hover:bg-blue-600 font-semibold focus:outline-none border"
+          className="bg-blue-500 text-white px-2 py-3 mt-4 text-lg rounded-full w-[48%] hover:bg-blue-600 font-semibold focus:outline-none"
         >
           Cargar imagen
         </button>
 
-        <button
-          type="submit"
-          className="bg-orange-500 text-white px-2 py-3 mt-4 rounded-full w-[48%] hover:bg-orange-600 font-semibold focus:outline-none border"
-          disabled={status}
-        >
-          {button}
-        </button>
+        {preview && (
+          <button
+            type="submit"
+            className="bg-orange-500 text-white px-2 py-3 mt-4 text-lg rounded-full w-[48%] hover:bg-orange-600 font-semibold focus:outline-none"
+            disabled={status}
+          >
+            {button}
+          </button>
+        )}
       </div>
     );
   };
 
-  const renderUploadButton = () => (
-    <div className="flex flex-col items-center">
-      <input
-        type="file"
-        name="image"
-        ref={fileInputRef}
-        className="hidden"
-        accept="image/*"
-        onChange={handleFileChange}
-      />
-      <button
-        type="button"
-        onClick={handleButtonClick}
-        className="bg-blue-500 text-white px-6 py-4 mt-4 text-xl rounded-full hover:bg-blue-600 font-semibold focus:outline-none"
-      >
-        Cargar imagen
-      </button>
-    </div>
-  );
-
   return (
     <div className="w-1/2 mx-auto">
       <div className="border-4 border-dotted p-6 shadow-xl bg-[#fafafa] min-h-72 place-content-center">
-        {preview ? (
-          <>
-            {renderImagePreview()}
-            {renderButtons()}
-          </>
-        ) : (
-          renderUploadButton()
-        )}
+        {preview && renderImagePreview()}
+        {status || state ? renderButtons() : renderUploadButton()}
       </div>
     </div>
   );
