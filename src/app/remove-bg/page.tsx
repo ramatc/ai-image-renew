@@ -29,7 +29,7 @@ export default function PageRemove() {
 
   return (
     <section className="px-12 pt-12 min-h-screen max-w-[1250px] mx-auto md:px-20 md:pt-20">
-      <h1 className="text-4xl text-center mt-10 mb-6 font-bold text-gray-700">
+      <h1 className="text-2xl lg:text-4xl text-center mt-10 mb-6 font-bold text-gray-700">
         Sube una imagen para
         <br />
         eliminar el fondo

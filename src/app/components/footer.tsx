@@ -15,7 +15,7 @@ const navLinks = [
 
 const Footer = () => {
   return (
-    <footer className="p-12 flex flex-wrap justify-between">
+    <footer className="p-12 flex flex-wrap justify-center gap-5 sm:justify-between">
       <p>© 2024 AI Image Renew.</p>
       <ul className="flex flex-wrap gap-[20px] justify-end">
         {navLinks.map((link, i) => (

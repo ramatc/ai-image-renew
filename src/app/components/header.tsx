@@ -14,12 +14,12 @@ const Header = () => {
 
   return (
     <header>
-      <nav className="py-5 md:p-5 text-sm sm:text-base border-b-2 border-slate-200">
-        <ul className="flex flex-wrap gap-3 md:gap-5">
-          <li>
+      <nav className="py-5 md:p-5 sm:text-base border-b-2 border-slate-200">
+        <ul className="flex flex-wrap justify-center md:justify-normal gap-3 md:gap-5">
+          <li className="w-full md:w-auto">
             <Link
               href="/"
-              className="hover:text-slate-500 transition-all duration-500 ease-in-out font-medium text-[20px] flex"
+              className="justify-center md:justify-normal hover:text-slate-500 transition-all duration-500 ease-in-out font-medium text-[20px] flex"
             >
               <Logo />
               <span className="font-semibold">AI</span>&nbsp;Image Renew

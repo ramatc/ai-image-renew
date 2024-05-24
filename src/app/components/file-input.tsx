@@ -95,7 +95,7 @@ function FileInput({
   const renderUploadButton = () => {
     return (
       <div
-        className={`flex  ${
+        className={`flex flex-wrap ${
           preview ? "justify-between" : "flex-col items-center"
         }`}
       >
@@ -110,7 +110,7 @@ function FileInput({
         <button
           type="button"
           onClick={handleButtonClick}
-          className="bg-blue-500 text-white px-2 py-3 mt-4 text-lg rounded-full w-[48%] hover:bg-blue-600 font-semibold focus:outline-none"
+          className="bg-blue-500 text-white w-full px-2 py-3 mt-4 sm:text-lg rounded-full sm:w-[48%] hover:bg-blue-600 font-semibold focus:outline-none"
         >
           Cargar imagen
         </button>
@@ -118,7 +118,7 @@ function FileInput({
         {preview && (
           <button
             type="submit"
-            className="bg-orange-500 text-white px-2 py-3 mt-4 text-lg rounded-full w-[48%] hover:bg-orange-600 font-semibold focus:outline-none"
+            className="bg-orange-500 text-white w-full px-2 py-3 mt-4 sm:text-lg rounded-full sm:w-[48%] hover:bg-orange-600 font-semibold focus:outline-none"
             disabled={status}
           >
             {button}
@@ -129,7 +129,7 @@ function FileInput({
   };
 
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="md:w-2/3 lg:w-1/2 mx-auto">
       <div className="border-4 border-dotted p-6 shadow-xl bg-[#fafafa] min-h-72 place-content-center">
         {preview && renderImagePreview()}
         {status || state ? renderButtons() : renderUploadButton()}
