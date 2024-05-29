@@ -79,7 +79,7 @@ function FileInput({
     if (state) {
       return (
         <button
-          className="bg-green-500 w-full text-white p-3 rounded mt-4 text-center block cursor-pointer hover:bg-green-600 font-semibold focus:outline-none"
+          className="mt-4 block w-full cursor-pointer rounded bg-green-500 p-3 text-center font-semibold text-white hover:bg-green-600 focus:outline-none"
           onClick={handleDownload}
         >
           Descargar
@@ -110,7 +110,7 @@ function FileInput({
         <button
           type="button"
           onClick={handleButtonClick}
-          className="bg-blue-500 text-white w-full px-2 py-3 mt-4 sm:text-lg rounded-full sm:w-[48%] hover:bg-blue-600 font-semibold focus:outline-none"
+          className="mt-4 w-full rounded-full bg-blue-500 px-2 py-3 font-semibold text-white hover:bg-blue-600 focus:outline-none sm:w-[48%] sm:text-lg"
         >
           Cargar imagen
         </button>
@@ -118,7 +118,7 @@ function FileInput({
         {preview && (
           <button
             type="submit"
-            className="bg-orange-500 text-white w-full px-2 py-3 mt-4 sm:text-lg rounded-full sm:w-[48%] hover:bg-orange-600 font-semibold focus:outline-none"
+            className="mt-4 w-full rounded-full bg-orange-500 px-2 py-3 font-semibold text-white hover:bg-orange-600 focus:outline-none sm:w-[48%] sm:text-lg"
             disabled={status}
           >
             {button}
@@ -129,8 +129,8 @@ function FileInput({
   };
 
   return (
-    <div className="md:w-2/3 lg:w-1/2 mx-auto">
-      <div className="border-4 border-dotted p-6 shadow-xl bg-[#fafafa] min-h-72 place-content-center">
+    <div className="mx-auto md:w-2/3 lg:w-1/2">
+      <div className="min-h-72 place-content-center border-4 border-dotted bg-[#fafafa] p-6 shadow-xl">
         {preview && renderImagePreview()}
         {status || state ? renderButtons() : renderUploadButton()}
       </div>

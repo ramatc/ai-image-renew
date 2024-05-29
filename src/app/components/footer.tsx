@@ -15,12 +15,12 @@ const navLinks = [
 
 const Footer = () => {
   return (
-    <footer className="p-12 flex flex-wrap justify-center gap-5 sm:justify-between">
+    <footer className="flex flex-wrap justify-center gap-5 p-12 sm:justify-between">
       <p>© 2024 AI Image Renew.</p>
-      <ul className="flex flex-wrap gap-[20px] justify-end">
+      <ul className="flex flex-wrap justify-end gap-[20px]">
         {navLinks.map((link, i) => (
           <li
-            className="hover:text-slate-500 transition-all duration-500 ease-in-out cursor-pointer"
+            className="cursor-pointer transition-all duration-500 ease-in-out hover:text-slate-500"
             key={i}
           >
             <a href={link.href} target="_blank" rel="noopener noreferrer">

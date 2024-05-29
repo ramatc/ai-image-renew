@@ -28,8 +28,8 @@ export default function PageRestore() {
   }
 
   return (
-    <section className="px-12 pt-12 min-h-screen max-w-[1250px] mx-auto md:px-20 md:pt-20">
-      <h1 className="text-2xl lg:text-4xl text-center mt-10 mb-6 font-bold text-gray-700">
+    <section className="mx-auto min-h-screen max-w-[1250px] px-12 pt-12 md:px-20 md:pt-20">
+      <h1 className="mb-6 mt-10 text-center text-2xl font-bold text-gray-700 lg:text-4xl">
         Sube una imagen para
         <br />
         restaurar el color
